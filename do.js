@@ -1,4 +1,23 @@
 
+
+var failmode = false;
+
+Object.defineProperty(failmode, 'secret', {
+    value: false,
+    writable : false,
+    enumerable : true,
+    configurable : false
+});
+
+var hasiframe = false;
+
+Object.defineProperty(hasiframe, 'secret', {
+    value: false,
+    writable : false,
+    enumerable : true,
+    configurable : false
+});
+
 var testsl = 69;
 var handler = {
 			apply: function(target, thisArg, argList){
