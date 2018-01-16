@@ -58,6 +58,7 @@ function get50(start, j){
 				return document.querySelector("#dvTable").innerHTML;
 			});
 			if(ua.length < 10){
+				console.log("Wouah");
 				page.close();
 			}else{
 				if(ua.length > 10 && ( typeof f[start/50]) == 'undefined' ||  f[start/50].length <= 10 ){
@@ -97,7 +98,7 @@ function dowork(){
 function afterwork(){
 	console.log("HERE");
 	for( i = 0; i <= 1000; i+=50){
-		console.log(f[i/50]);
+		console.log(f[(n*1000 + i)/50]);
 	}
 	n++;
 	if(n == 1){
@@ -108,5 +109,8 @@ function afterwork(){
 }
 
 function round(n){
-	waitFor(dowork, afterwork, 100000);
+	waitFor(dowork, afterwork);
 }
+
+//round(0);
+dowork();
