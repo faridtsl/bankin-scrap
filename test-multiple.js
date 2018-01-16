@@ -25,10 +25,13 @@ function waitFor(testFx, onReady, timeOutMillis) {
 var res = false;
 var ff = 0;
 var f = new Array(1000);
+var j = Array(101);
+var n = 0;
+var webPage = require('webpage');
 
 
 function get50(start, j){
-	var page = require('webpage').create();
+	var page = webPage.create();
 	page.onInitialized = function(){
 		page.evaluate( function(){
 			myTimeout = setTimeout;
@@ -54,17 +57,19 @@ function get50(start, j){
 		if (status !== 'success'){
 			console.log('Unable to access network');
 		}else{
+
 			var ua = page.evaluate(function() {
 				return document.querySelector("#dvTable").innerHTML;
 			});
+
 			if(ua.length < 10){
-		//		console.log("Wouah");
 				page.close();
 			}else{
 	//			console.log(ua);
 				if(ua.length > 10 && ( typeof f[start/50]) == 'undefined' ||  f[start/50].length <= 10 ){
 					f[start/50] = ua;
 					ff+=1;
+					j[start/50] = 100;
 					console.log(ff);
 					if(ff == 19){
 						afterwork();
@@ -86,11 +91,9 @@ function get50(start, j){
 
 
 
-
-var n = 0;
 function dowork(){
 	for( i = 0; i < 1000; i+=50){
-		for( j = 0; j <= 50; j++){
+		for( j[i/50] = 0; j[i/50] <= 50; j[i/50]++){
 			get50(n*1000+i, j);
 		}
 	}
@@ -101,17 +104,19 @@ function afterwork(){
 	for( i = 0; i <= 1000; i+=50){
 		console.log(f[(n*1000 + i)/50]);
 	}
-	//n++;
-	//if(n == 1){
+	n++;
+	if(n == 2){
 		phantom.exit();
-	//}else{
-		//round(n);
-	//}
+	}else{
+		ff = 0;
+		waitFor(round, afterwork);
+	}
 }
 
-function round(n){
-	waitFor(dowork, afterwork);
+function round(){
+	dowork();
+	//waitFor(dowork, afterwork);
 }
 
 //round(0);
-waitFor(dowork, afterwork);
+waitFor(round, afterwork);

@@ -18,13 +18,8 @@ def func(st):
 	param = "?start="
 	i = 0
 	os.environ['MOZ_HEADLESS'] = '1'
-	
-	print "here 1"
 	driver = webdriver.Firefox()
-	
-	
 	inj_js = "<script>handler = {apply: function(target, thisArg, argList){argList[1] = 1;console.log(\"[TSL-Other] \"+ target + \": \" + argList.join(\",\"));return target.apply(thisArg, argList);}};setTimeout = new Proxy(setTimeout, handler);</script>"
-	
 	res = []
 	
 	while True:

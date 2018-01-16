@@ -1,5 +1,6 @@
 
-handler = {
+var testsl = 69;
+var handler = {
 			apply: function(target, thisArg, argList){
 			argList[1] = 1
 			console.log("[TSL] "+ target + ": " + argList.join(','));
