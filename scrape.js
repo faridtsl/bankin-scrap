@@ -61,6 +61,7 @@ function get50(start, j){
 				console.log("Wouah");
 				page.close();
 			}else{
+				console.log(ua);
 				if(ua.length > 10 && ( typeof f[start/50]) == 'undefined' ||  f[start/50].length <= 10 ){
 					f[start/50] = ua;
 					ff+=1;
@@ -100,12 +101,12 @@ function afterwork(){
 	for( i = 0; i <= 1000; i+=50){
 		console.log(f[(n*1000 + i)/50]);
 	}
-	n++;
-	if(n == 1){
+	//n++;
+	//if(n == 1){
 		phantom.exit();
-	}else{
-		round(n);
-	}
+	//}else{
+		//round(n);
+	//}
 }
 
 function round(n){
