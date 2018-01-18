@@ -30,16 +30,17 @@ Puis Après on :
 	- Sinon il redemande la page.
 
 ### Notes:
-	* Pour executer le script :
-		``` bash
-			casperjs caspers.js
-		```
-	* Le script est documenté en CasperJs (:p) et en anglais.
+* Pour executer le script :
+``` bash
+	casperjs caspers.js
+```
+* Le script est documenté en CasperJs (:p) et en anglais.
 
 
 ## Description (EN):
 
 This script is created for the challenge "engineering" organised by : http://blog.bankin.com/.
+
 The website is full of intentional bugs, that we need to eliminate in order to get the job done.
 
 
@@ -65,7 +66,7 @@ The caspers.js file then :
 	- Otherwise, we reload the page.
 
 ### Notes:
-	* To execute the script :
-		``` bash
-			casperjs caspers.js
-		```
+* To execute the script :
+``` bash
+	casperjs caspers.js
+```
