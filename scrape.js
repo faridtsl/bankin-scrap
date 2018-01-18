@@ -84,7 +84,7 @@ casper.on('load.finished', function(){
 // This methode starts casper and for every url on the 'urls' array:
 //		** Takes the start id using the regular expressions:
 //			*** .*= to delete up to the equal sign (in case there is an IP adresse with numbers in the URL).
-//			***	^\D+ to delete all non numeric characters left.
+//			*** ^\D+ to delete all non numeric characters left.
 //		** Prints "Loading x ....".
 //		** When the page is loaded the 'load.finished' listener handles the output.
 casper.start().eachThen(urls, function(response) {
