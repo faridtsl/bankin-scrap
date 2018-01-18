@@ -4,7 +4,7 @@ var fs = require("fs");			// 'fs' is the object from the module fs giving us acc
 
 // Declaration of global variables
 var f = Array(101);				// An array of HTML Tables extracted from the website.
-var nb = 5000;					// The number of transaction we want
+var nb = 5000;				// The number of transaction we want
 var mx = nb - 50;				// The max of start parameter
 var arr = [];					// Array containing JS objects and will be written on a file when finished
 
@@ -12,7 +12,7 @@ var arr = [];					// Array containing JS objects and will be written on a file w
 //var url = "http://127.0.0.1/index.html"					// Please uncomment this line for better speed expected : ~45sec (Eliminates the time of the request over the network)
 var url = "http://web.bankin.com/challenge/index.html" 		// The url from the banking server slower compared to using localhost expected : 1min35sec (depending on the internet speed)
 
-var urls = Array(101);										//  An array containing the different urls which will be used to request (with different start parameters)
+var urls = Array(101);						//  An array containing the different urls which will be used to request (with different start parameters)
 
 
 // Filling the urls array
@@ -20,7 +20,7 @@ for( j = 0; j < mx+50; j+=50){
 	urls[j] = url + "?start=" + j;
 }
 
-var i = 0;						// The index used to fill the f Array
+var i = 0;				// The index used to fill the f Array
 
 // Creating a casper object and injecting do.js file in every webpage (client side only)
 //		** The do.js file is a file created on the same directory to redefine some variable (Please refer to do.js for further documentation)
