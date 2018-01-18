@@ -3,6 +3,7 @@
 ## Description (FR):
 
 Dans le cadre du challenge "engineering" organisé par : https://blog.bankin.com/.
+
 J'ai créé ce script en utilisant CasperJS pour scrapper un site web avec des bugs intentionnels.
 
 
@@ -30,7 +31,7 @@ Puis Après on :
 
 ### Notes:
 	* Pour executer le script :
-		```bash
+		``` bash
 			casperjs caspers.js
 		```
 	* Le script est documenté en CasperJs (:p) et en anglais.
@@ -65,6 +66,6 @@ The caspers.js file then :
 
 ### Notes:
 	* To execute the script :
-		```bash
+		``` bash
 			casperjs caspers.js
 		```
