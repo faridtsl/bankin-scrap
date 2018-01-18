@@ -32,7 +32,7 @@ Puis Après on :
 ### Notes:
 * Pour executer le script :
 ``` bash
-	casperjs caspers.js
+	casperjs scrape.js
 ```
 * Le script est documenté en CasperJs (:p) et en anglais.
 
@@ -60,7 +60,7 @@ The idea was to create a CasperJS script, and each time a page is loaded we inje
 * Redefines setTimeout to always wait only 1ms.
 * Declare variables 'hasiframe' and 'failmode' in read-only mode, and initialize them to false.
 
-The caspers.js file then :
+The scrape.js file then :
 * Scrapes the pages and for every page:
 	- Verifies if the table containing the transactions exists, if so we memorize it.
 	- Otherwise, we reload the page.
@@ -68,5 +68,5 @@ The caspers.js file then :
 ### Notes:
 * To execute the script :
 ``` bash
-	casperjs caspers.js
+	casperjs scrape.js
 ```
