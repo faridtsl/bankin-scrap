@@ -16,7 +16,7 @@ var urls = Array(101);						//  An array containing the different urls which wil
 
 
 // Filling the urls array
-for( j = 0; j < mx+50; j+=50){
+for( j = 0; j <= mx; j+=50){
 	urls[j] = url + "?start=" + j;
 }
 
@@ -25,11 +25,18 @@ var i = 0;				// The index used to fill the f Array
 // Creating a casper object and injecting do.js file in every webpage (client side only)
 //		** The do.js file is a file created on the same directory to redefine some variable (Please refer to do.js for further documentation)
 var casper = require('casper').create({
-	clientScripts: ["./do.js"],
 	logLevel: "debug"
 });
 
 // Begin listener definitions
+
+casper.on("page.initialized", function(){
+	this.evaluate(function(){
+		Math.random = function(){
+			return 0.01;
+		}
+	});
+});
 
 // If we are unable to load a resource from the file this lister is called
 // 		** It gives us some informations about the resource and the error
@@ -54,8 +61,8 @@ casper.on('fail.event', function() {
 	if( typeof f[i/50] == 'undefined' ){
 		this.wait(5, function(){
 			this.evaluate(function(){
-	//			console.log("Reloading...");
-				window.location.reload();
+	//		console.log("Reloading...");
+			window.location.reload();
 			});
 		 });
 	}

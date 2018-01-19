@@ -4,8 +4,7 @@
 // 'failmode' is a variable indicating to the 'load.js' file that our 'something' has failed
 // thus creating problems. To elemminate all sort of problems 'failmode' is declared 
 // before 'load.js' as having value false and read-only. so we prevent it from changing.
-var failmode = false;
-Object.defineProperty(failmode, 'secret', {
+Object.defineProperty(window, 'failmode', {
     value: false,
     writable : false,
     enumerable : true,
@@ -16,8 +15,7 @@ Object.defineProperty(failmode, 'secret', {
 // 'hasiframe' is telling the 'load.js' script to create and iframe.
 // we don't need it to get all the transactions so with the same technique above
 // let's declare it as having value false and prevent it from changing.
-var hasiframe = false;
-Object.defineProperty(hasiframe, 'secret', {
+Object.defineProperty(window, 'hasiframe', {
     value: false,
     writable : false,
     enumerable : true,
